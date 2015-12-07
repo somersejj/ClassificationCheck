@@ -16,7 +16,6 @@ import org.bimserver.interfaces.objects.SLongActionState;
 import org.bimserver.interfaces.objects.SObjectType;
 import org.bimserver.interfaces.objects.SProgressTopicType;
 import org.bimserver.interfaces.objects.SProject;
-import org.bimserver.models.ifc2x3tc1.IfcClassification;
 import org.bimserver.models.ifc2x3tc1.IfcRelAssociatesClassification;
 import org.bimserver.models.ifc2x3tc1.IfcRoot;
 import org.bimserver.models.log.AccessMethod;
@@ -35,7 +34,6 @@ import org.bimserver.shared.PublicInterfaceNotFoundException;
 import org.bimserver.shared.exceptions.ServerException;
 import org.bimserver.shared.exceptions.UserException;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -146,8 +144,7 @@ public class ClassificationCheckServicePlugin extends ServicePlugin {
 					LOGGER.info("Classification check is done.");
 
 				} catch (BimServerClientException
-						| PublicInterfaceNotFoundException e) {
-					// TODO Auto-generated catch block
+						| PublicInterfaceNotFoundException e) {			
 					e.printStackTrace();
 				}
 			}
@@ -212,7 +209,6 @@ public class ClassificationCheckServicePlugin extends ServicePlugin {
 
 	@Override
 	public ObjectDefinition getSettingsDefinition() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
