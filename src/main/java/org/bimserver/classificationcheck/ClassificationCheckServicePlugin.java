@@ -130,7 +130,7 @@ public class ClassificationCheckServicePlugin extends ServicePlugin {
 					state = new SLongActionState();
 					state.setProgress(100);
 					state.setInfos(infos);
-					state.setTitle("BuildingStorey checker");
+					state.setTitle("Classification checker");
 					state.setState(SActionState.FINISHED);
 					state.setStart(startDate);
 					state.setEnd(new Date());
@@ -139,7 +139,7 @@ public class ClassificationCheckServicePlugin extends ServicePlugin {
 				   
 					LOGGER.info("Writing classification check is results to extended data");
 					
-					addExtendedData(info.toString().getBytes(Charsets.UTF_8), "BuildingStoreycheckerlog.txt", "BuildingStoreycheckerlog", "text", bimServerClientInterface, roid);
+					addExtendedData(info.toString().getBytes(Charsets.UTF_8), "Classificationcheckerlog.txt", "Classificationcheckerlog", "text", bimServerClientInterface, roid);
 
 					LOGGER.info("Classification check is done.");
 
