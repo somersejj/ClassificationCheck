@@ -24,13 +24,13 @@ import org.bimserver.models.store.ServiceDescriptor;
 import org.bimserver.models.store.StoreFactory;
 import org.bimserver.models.store.Trigger;
 import org.bimserver.plugins.PluginConfiguration;
-import org.bimserver.plugins.PluginException;
-import org.bimserver.plugins.PluginManager;
-import org.bimserver.plugins.services.BimServerClientException;
+import org.bimserver.plugins.PluginManagerInterface;
 import org.bimserver.plugins.services.BimServerClientInterface;
 import org.bimserver.plugins.services.NewRevisionHandler;
 import org.bimserver.plugins.services.ServicePlugin;
-import org.bimserver.shared.PublicInterfaceNotFoundException;
+import org.bimserver.shared.exceptions.BimServerClientException;
+import org.bimserver.shared.exceptions.PluginException;
+import org.bimserver.shared.exceptions.PublicInterfaceNotFoundException;
 import org.bimserver.shared.exceptions.ServerException;
 import org.bimserver.shared.exceptions.UserException;
 import org.eclipse.emf.common.util.EList;
@@ -47,12 +47,12 @@ public class ClassificationCheckServicePlugin extends ServicePlugin {
 	private static final String NAMESPACE = "http://bimserver.org/classificationCheck";
 
 	@Override
-	public void init(final PluginManager pluginManager) throws PluginException {
+	public void init(final PluginManagerInterface pluginManager) throws PluginException {
 		super.init(pluginManager);
 		initialized = true;
 	}
 
-	public void register(long uoid, SInternalServicePluginConfiguration internalServicePluginConfiguration, final PluginConfiguration pluginConfiguration) {
+	public void register(long uoid, SInternalServicePluginConfiguration internalServicePluginConfiguration, PluginConfiguration pluginConfiguration) {
 		ServiceDescriptor classificationCheck = StoreFactory.eINSTANCE.createServiceDescriptor();
 		classificationCheck.setProviderName("BIMserver");
 		classificationCheck.setIdentifier("" + internalServicePluginConfiguration.getOid());
@@ -211,6 +211,8 @@ public class ClassificationCheckServicePlugin extends ServicePlugin {
 	public ObjectDefinition getSettingsDefinition() {
 		return null;
 	}
+
+
 	
 	
 }
